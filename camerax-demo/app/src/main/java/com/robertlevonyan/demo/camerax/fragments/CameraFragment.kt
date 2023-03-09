@@ -353,7 +353,7 @@ class CameraFragment : BaseFragment<FragmentCameraBinding>(R.layout.fragment_cam
             // The ratio for the output image and preview
             val aspectRatio = aspectRatio(metrics.widthPixels, metrics.heightPixels)
             // The display rotation
-            val rotation = viewFinder.display.rotation
+
 
             val localCameraProvider = cameraProvider
                 ?: throw IllegalStateException("Camera initialization failed.")

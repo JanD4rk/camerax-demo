@@ -21,6 +21,7 @@ import androidx.camera.camera2.interop.ExperimentalCamera2Interop
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.video.*
+import androidx.camera.video.VideoCapture
 import androidx.core.animation.doOnCancel
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsCompat
@@ -35,6 +36,7 @@ import com.robertlevonyan.demo.camerax.databinding.FragmentVideoBinding
 import com.robertlevonyan.demo.camerax.utils.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.*
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -99,7 +101,6 @@ class VideoFragment : BaseFragment<FragmentVideoBinding>(R.layout.fragment_video
         override fun onDisplayAdded(displayId: Int) = Unit
         override fun onDisplayRemoved(displayId: Int) = Unit
 
-        @SuppressLint("UnsafeExperimentalUsageError", "UnsafeOptInUsageError")
         override fun onDisplayChanged(displayId: Int) = view?.let { view ->
             if (displayId == this@VideoFragment.displayId) {
                 preview?.targetRotation = view.display.rotation
